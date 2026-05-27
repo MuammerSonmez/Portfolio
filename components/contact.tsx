@@ -27,10 +27,10 @@ export function Contact() {
               <div>
                 <h3 className="text-sm font-medium text-muted-foreground mb-3">Email</h3>
                 <Link 
-                  href="mailto:hello@muammer.dev"
+                  href="mailto:muammersonmezofficial@gmail.com"
                   className="text-lg text-foreground hover:text-primary transition-colors"
                 >
-                  hello@muammer.dev
+                  muammersonmezofficial@gmail.com
                 </Link>
               </div>
               
@@ -56,7 +56,7 @@ export function Contact() {
                     <span>LinkedIn</span>
                   </Link>
                   <Link 
-                    href="mailto:hello@muammer.dev"
+                    href="mailto:muammersonmezofficial@gmail.com"
                     className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors"
                   >
                     <Mail size={20} />
