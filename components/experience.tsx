@@ -60,8 +60,7 @@ const experiences: ExperienceItem[] = [
     name: "MilSOFT A.Ş.",
     type: "Company", // "Company" | "Lab" | "Project"
     role: "Autonomous Software Engineer Intern",
-    description: "DEBUG",
-    // Developed autonomous navigation stacks for warehouse mobile platforms using ROS2 Humble.
+    description: "Developed autonomous navigation stacks and integrated robotics solutions for defense industry projects.",
     websiteUrl: "https://www.milsoft.com.tr/",
     image: "/milsoft.jpeg", // MilSOFT logosu için eklenen görsel yolu
     colorClass: "from-teal-500/10 to-emerald-500/10 border-teal-500/30 hover:border-teal-400/60 shadow-teal-500/5",
@@ -234,92 +233,92 @@ export function Experience() {
       </div>
 
       {/* Marquee Slider Container */}
-      <div className="relative w-full py-4 group/slider" >
+      <div className="relative w-full py-4 group/slider">
         {/* Sol Ok Butonu (Mouse üzerine gelince görünür) */}
-        < button
+        <button
           onClick={() => handleScroll("left")}
           className="absolute left-6 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-background/80 border border-border backdrop-blur-md text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 shadow-xl opacity-0 group-hover/slider:opacity-100 cursor-pointer hidden md:flex items-center justify-center hover:scale-110 active:scale-95"
-          aria - label="Scroll left"
-  >
-        <ChevronLeft size={20} />
-      </button >
-
-      {/* Sağ Ok Butonu (Mouse üzerine gelince görünür) */}
-      < button
-        onClick={() => handleScroll("right")}
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-background/80 border border-border backdrop-blur-md text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 shadow-xl opacity-0 group-hover/slider:opacity-100 cursor-pointer hidden md:flex items-center justify-center hover:scale-110 active:scale-95"
-        aria - label="Scroll right"
-  >
-      <ChevronRight size={20} />
-    </button >
-
-  {/* Sol ve Sağ Sönümleme Efekti (Fade Effect) */ }
-  < div className = "absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-    <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-
-  {/* Kayan Bant */ }
-  <div
-    ref={scrollRef}
-    onMouseEnter={() => setIsPaused(true)}
-    onMouseLeave={() => setIsPaused(false)}
-    className="flex gap-6 overflow-x-auto py-2 px-8 select-none scrollbar-none"
-    style={{
-      scrollbarWidth: "none",
-      msOverflowStyle: "none",
-    }}
-  >
-    {duplicatedExperiences.map((exp, index) => {
-      const IconComponent = exp.icon;
-      return (
-        <a
-          key={index}
-          href={exp.websiteUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`flex-shrink-0 w-[320px] md:w-[360px] group relative block p-6 rounded-xl border bg-gradient-to-br ${exp.colorClass} backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 shadow-sm hover:shadow-md cursor-pointer`}
+          aria-label="Scroll left"
         >
-          {/* Dışarı Gitme İkonu (Sağ üst köşe) */}
-          <div className="absolute top-4 right-4 text-muted-foreground/40 group-hover:text-primary transition-colors duration-300">
-            <ExternalLink size={14} />
-          </div>
+          <ChevronLeft size={20} />
+        </button>
 
-          <div className="flex items-start gap-4">
-            {/* Sol Görsel/İkon Bölümü */}
-            <div className="p-2.5 rounded-lg bg-background/90 border border-border group-hover:border-primary/30 transition-all duration-300 flex items-center justify-center w-12 h-12 flex-shrink-0 overflow-hidden">
-              {exp.image ? (
-                <img
-                  src={exp.image}
-                  alt={exp.name}
-                  className="w-full h-full object-cover rounded"
-                />
-              ) : IconComponent ? (
-                <IconComponent className={`w-6 h-6 ${exp.iconColor} group-hover:scale-110 transition-transform duration-300`} />
-              ) : null}
-            </div>
+        {/* Sağ Ok Butonu (Mouse üzerine gelince görünür) */}
+        <button
+          onClick={() => handleScroll("right")}
+          className="absolute right-6 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-background/80 border border-border backdrop-blur-md text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 shadow-xl opacity-0 group-hover/slider:opacity-100 cursor-pointer hidden md:flex items-center justify-center hover:scale-110 active:scale-95"
+          aria-label="Scroll right"
+        >
+          <ChevronRight size={20} />
+        </button>
 
-            {/* Detaylar */}
-            <div className="flex-1 min-w-0">
-              <span className="text-[10px] font-mono font-semibold tracking-wider uppercase opacity-60 text-muted-foreground group-hover:text-primary transition-colors">
-                {exp.type}
-              </span>
+        {/* Sol ve Sağ Sönümleme Efekti (Fade Effect) */}
+        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
-              <h3 className="text-lg font-bold text-foreground mt-1 group-hover:text-primary transition-colors truncate">
-                {exp.name}
-              </h3>
+        {/* Kayan Bant */}
+        <div
+          ref={scrollRef}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          className="flex gap-6 overflow-x-auto py-2 px-8 select-none scrollbar-none"
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+          }}
+        >
+          {duplicatedExperiences.map((exp, index) => {
+            const IconComponent = exp.icon;
+            return (
+              <a
+                key={index}
+                href={exp.websiteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex-shrink-0 w-[320px] md:w-[360px] group relative block p-6 rounded-xl border bg-gradient-to-br ${exp.colorClass} backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 shadow-sm hover:shadow-md cursor-pointer`}
+              >
+                {/* Dışarı Gitme İkonu (Sağ üst köşe) */}
+                <div className="absolute top-4 right-4 text-muted-foreground/40 group-hover:text-primary transition-colors duration-300">
+                  <ExternalLink size={14} />
+                </div>
 
-              <p className="text-xs text-muted-foreground font-mono mt-0.5 truncate">
-                {exp.role}
-              </p>
+                <div className="flex items-start gap-4">
+                  {/* Sol Görsel/İkon Bölümü */}
+                  <div className="p-2.5 rounded-lg bg-background/90 border border-border group-hover:border-primary/30 transition-all duration-300 flex items-center justify-center w-12 h-12 flex-shrink-0 overflow-hidden">
+                    {exp.image ? (
+                      <img
+                        src={exp.image}
+                        alt={exp.name}
+                        className="w-full h-full object-cover rounded"
+                      />
+                    ) : IconComponent ? (
+                      <IconComponent className={`w-6 h-6 ${exp.iconColor} group-hover:scale-110 transition-transform duration-300`} />
+                    ) : null}
+                  </div>
 
-              <p className="text-xs text-muted-foreground/80 mt-3 leading-relaxed line-clamp-2">
-                {exp.description}
-              </p>
-            </div>
-          </div>
-        </a>
-      );
-    })}
-  </div>
+                  {/* Detaylar */}
+                  <div className="flex-1 min-w-0">
+                    <span className="text-[10px] font-mono font-semibold tracking-wider uppercase opacity-60 text-muted-foreground group-hover:text-primary transition-colors">
+                      {exp.type}
+                    </span>
+
+                    <h3 className="text-lg font-bold text-foreground mt-1 group-hover:text-primary transition-colors truncate">
+                      {exp.name}
+                    </h3>
+
+                    <p className="text-xs text-muted-foreground font-mono mt-0.5 truncate">
+                      {exp.role}
+                    </p>
+
+                    <p className="text-xs text-muted-foreground/80 mt-3 leading-relaxed line-clamp-2">
+                      {exp.description}
+                    </p>
+                  </div>
+                </div>
+              </a>
+            );
+          })}
+        </div>
       </div >
     </section >
   );
