@@ -60,7 +60,8 @@ const experiences: ExperienceItem[] = [
     name: "MilSOFT A.Ş.",
     type: "Company", // "Company" | "Lab" | "Project"
     role: "Autonomous Software Engineer Intern",
-    description: "Developed autonomous navigation stacks for warehouse mobile platforms using ROS2 Humble.",
+    description: "DEBUG",
+    // Developed autonomous navigation stacks for warehouse mobile platforms using ROS2 Humble.
     websiteUrl: "https://www.milsoft.com.tr/",
     image: "/milsoft.jpeg", // MilSOFT logosu için eklenen görsel yolu
     colorClass: "from-teal-500/10 to-emerald-500/10 border-teal-500/30 hover:border-teal-400/60 shadow-teal-500/5",
