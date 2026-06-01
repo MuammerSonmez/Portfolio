@@ -43,7 +43,19 @@ import {
  * =========================================================================
  */
 
-const experiences = [
+interface ExperienceItem {
+  name: string;
+  type: string;
+  role: string;
+  description: string;
+  websiteUrl: string;
+  image?: string;
+  icon?: any;
+  colorClass: string;
+  iconColor?: string;
+}
+
+const experiences: ExperienceItem[] = [
   {
     name: "MilSOFT A.Ş.",
     type: "Company", // "Company" | "Lab" | "Project"
