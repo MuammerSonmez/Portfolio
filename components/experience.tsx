@@ -123,11 +123,16 @@ const experiences: ExperienceItem[] = [
     description: "Implemented MoveIt2 custom trajectory planners for picking operations in structured environments.",
     websiteUrl: "https://example.com/futuredynamics",
     icon: Sliders,
-    colorClass: "from-violet-500/10 to-fuchsia-500/10 border-violet-500/30 h// Kesintisiz manuel ve otomatik sonsuz döngü için listeyi üç kez çoğaltıyoruz.
+    colorClass: "from-violet-500/10 to-fuchsia-500/10 border-violet-500/30 hover:border-violet-400/60 shadow-violet-500/5",
+    iconColor: "text-violet-400",
+  },
+];
+
+// Kesintisiz manuel ve otomatik sonsuz döngü için listeyi üç kez çoğaltıyoruz.
 // Bu sayede kullanıcı butonlarla çok hızlı kaydırsa bile asla sınır çizgisine çarpmaz.
 const duplicatedExperiences = [...experiences, ...experiences, ...experiences];
 
-    export function Experience() {
+export function Experience() {
     const scrollRef = React.useRef<HTMLDivElement>(null);
     const [isPaused, setIsPaused] = React.useState(false);
     const speedRef = React.useRef(1.8); // Otomatik kayma hızı (1.8 piksel/kare). Bunu artırıp azaltabilirsin!
