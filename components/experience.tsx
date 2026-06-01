@@ -1,15 +1,15 @@
 "use client";
 
 import React from "react";
-import { 
-  Cpu, 
-  Orbit, 
-  Activity, 
-  Eye, 
-  Zap, 
-  Sprout, 
-  Sliders, 
-  ExternalLink 
+import {
+  Cpu,
+  Orbit,
+  Activity,
+  Eye,
+  Zap,
+  Sprout,
+  Sliders,
+  ExternalLink
 } from "lucide-react";
 
 /**
@@ -43,12 +43,12 @@ import {
 
 const experiences = [
   {
-    name: "RoboTech Solutions",
+    name: "MilSOFT A.Ş.",
     type: "Company", // "Company" | "Lab" | "Project"
-    role: "Senior Robotics Developer",
+    role: "Autonomous Software Engineer Intern",
     description: "Developed autonomous navigation stacks for warehouse mobile platforms using ROS2 Humble.",
-    websiteUrl: "https://example.com/robotech", // Tıklandığında gideceği site
-    icon: Cpu, // Kullanılan simge/ikon
+    websiteUrl: "https://www.milsoft.com.tr/",
+    image: "/milsoft.jpeg", // MilSOFT logosu için eklenen görsel yolu
     colorClass: "from-teal-500/10 to-emerald-500/10 border-teal-500/30 hover:border-teal-400/60 shadow-teal-500/5",
     iconColor: "text-teal-400",
   },
@@ -129,8 +129,8 @@ export function Experience() {
           </div>
           <div>
             <p className="text-lg text-muted-foreground max-w-2xl">
-              Here are the companies I have worked with, research laboratories I have contributed to, 
-              and the engineering solutions I have deployed in the field. 
+              Here are the companies I have worked with, research laboratories I have contributed to,
+              and the engineering solutions I have deployed in the field.
               <span className="text-primary font-medium block mt-1 text-sm font-mono">
                 ← Hover to pause & click to visit website →
               </span>
@@ -145,8 +145,8 @@ export function Experience() {
         <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
         <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
-        {/* Kayan Bant */}
-        <div className="animate-marquee-right flex gap-6 px-4">
+        {/* Kayan Bant (Hover olunca durması için Tailwind v4 hover:animate-paused ekledik) */}
+        <div className="animate-marquee-right hover:animate-paused flex gap-6 px-4">
           {duplicatedExperiences.map((exp, index) => {
             const IconComponent = exp.icon;
             return (
@@ -163,9 +163,17 @@ export function Experience() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  {/* Sol İkon Bölümü */}
-                  <div className={`p-3 rounded-lg bg-background/80 border border-border group-hover:border-primary/30 transition-all duration-300`}>
-                    <IconComponent className={`w-6 h-6 ${exp.iconColor} group-hover:scale-110 transition-transform duration-300`} />
+                  {/* Sol Görsel/İkon Bölümü */}
+                  <div className="p-2.5 rounded-lg bg-background/90 border border-border group-hover:border-primary/30 transition-all duration-300 flex items-center justify-center w-12 h-12 flex-shrink-0 overflow-hidden">
+                    {exp.image ? (
+                      <img
+                        src={exp.image}
+                        alt={exp.name}
+                        className="w-full h-full object-cover rounded"
+                      />
+                    ) : IconComponent ? (
+                      <IconComponent className={`w-6 h-6 ${exp.iconColor} group-hover:scale-110 transition-transform duration-300`} />
+                    ) : null}
                   </div>
 
                   {/* Detaylar */}
@@ -173,15 +181,15 @@ export function Experience() {
                     <span className="text-[10px] font-mono font-semibold tracking-wider uppercase opacity-60 text-muted-foreground group-hover:text-primary transition-colors">
                       {exp.type}
                     </span>
-                    
+
                     <h3 className="text-lg font-bold text-foreground mt-1 group-hover:text-primary transition-colors truncate">
                       {exp.name}
                     </h3>
-                    
+
                     <p className="text-xs text-muted-foreground font-mono mt-0.5 truncate">
                       {exp.role}
                     </p>
-                    
+
                     <p className="text-xs text-muted-foreground/80 mt-3 leading-relaxed line-clamp-2">
                       {exp.description}
                     </p>

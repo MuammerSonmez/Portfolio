@@ -46,6 +46,17 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
+  --animate-marquee-right: marquee-right 40s linear infinite;
+
+  @keyframes marquee-right {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
 }
 
 :root {
@@ -117,23 +128,7 @@ html {
   background: oklch(0.40 0.02 240);
 }
 
-/* Endless horizontal marquee animation (scrolls to the right) */
-@keyframes marquee-right {
-  0% {
-    transform: translateX(-50%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
-
-.animate-marquee-right {
-  display: flex;
-  width: max-content;
-  animation: marquee-right 40s linear infinite;
-}
-
-.animate-marquee-right:hover {
+@utility animate-paused {
   animation-play-state: paused;
 }
 
