@@ -9,7 +9,9 @@ import {
   Zap,
   Sprout,
   Sliders,
-  ExternalLink
+  ExternalLink,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 
 /**
@@ -109,97 +111,198 @@ const experiences = [
     description: "Implemented MoveIt2 custom trajectory planners for picking operations in structured environments.",
     websiteUrl: "https://example.com/futuredynamics",
     icon: Sliders,
-    colorClass: "from-violet-500/10 to-fuchsia-500/10 border-violet-500/30 hover:border-violet-400/60 shadow-violet-500/5",
-    iconColor: "text-violet-400",
-  },
-];
+    colorClass: "from-violet-500/10 to-fuchsia-500/10 border-violet-500/30 h// Kesintisiz manuel ve otomatik sonsuz döngü için listeyi üç kez çoğaltıyoruz.
+// Bu sayede kullanıcı butonlarla çok hızlı kaydırsa bile asla sınır çizgisine çarpmaz.
+const duplicatedExperiences = [...experiences, ...experiences, ...experiences];
 
-// Kesintisiz sonsuz kayma hareketi için listeyi iki kez render etmemiz gerekir.
-const duplicatedExperiences = [...experiences, ...experiences];
+    export function Experience() {
+    const scrollRef = React.useRef<HTMLDivElement>(null);
+    const [isPaused, setIsPaused] = React.useState(false);
+    const speedRef = React.useRef(1.8); // Otomatik kayma hızı (1.8 piksel/kare). Bunu artırıp azaltabilirsin!
 
-export function Experience() {
-  return (
-    <section id="experience" className="py-24 border-t border-border bg-card/10 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 mb-12">
-        <div className="grid md:grid-cols-[200px_1fr] gap-12">
-          <div>
-            <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider sticky top-24">
-              Experience & Labs
-            </h2>
+    React.useEffect(() => {
+      const container = scrollRef.current;
+      if (!container) return;
+
+      // Sayfa yüklendiğinde tam ortadaki (ikinci) setin başlangıcına odaklanıyoruz
+      const handleInitialScroll = () => {
+        const W = container.scrollWidth;
+        container.scrollLeft = W / 3;
+      };
+
+      // scrollWidth hemen yüklenmeyebilir, kısa bir gecikmeyle garanti altına alıyoruz
+      const timer = setTimeout(handleInitialScroll, 100);
+
+      let animationFrameId: number;
+
+      const animate = () => {
+        if (!isPaused && container) {
+          // Sağa doğru pürüzsüz kayması için scrollLeft değerini azaltıyoruz (İçerik sağa kayar)
+          container.scrollLeft -= speedRef.current;
+
+          const currentW = container.scrollWidth;
+          const oneThird = currentW / 3;
+
+          // Sol sınıra (en başa) ulaştığında, ortadaki sete (Set B) zıplat
+          if (container.scrollLeft <= 5) {
+            container.scrollLeft = oneThird + container.scrollLeft;
+          }
+        }
+        animationFrameId = requestAnimationFrame(animate);
+      };
+
+      animationFrameId = requestAnimationFrame(animate);
+
+      return () => {
+        clearTimeout(timer);
+        cancelAnimationFrame(animationFrameId);
+      };
+    }, [isPaused]);
+
+    // Manuel Butonlarla Hızlı Kaydırma Fonksiyonu (Oklar)
+    const handleScroll = (direction: "left" | "right") => {
+      const container = scrollRef.current;
+      if (!container) return;
+
+      const cardWidth = 384; // Kart genişliği (360px) + Boşluk (24px)
+      const currentW = container.scrollWidth;
+      const oneThird = currentW / 3;
+
+      // Kullanıcı butona bastığında otomatik kaymayı geçici olarak durduruyoruz
+      setIsPaused(true);
+
+      const scrollTarget = direction === "left"
+        ? container.scrollLeft - cardWidth
+        : container.scrollLeft + cardWidth;
+
+      // Pürüzsüz kaydırma yapıyoruz
+      container.scrollTo({
+        left: scrollTarget,
+        behavior: "smooth"
+      });
+
+      // Kaydırma işlemi tamamlandıktan sonra (300ms) sonsuz döngü konumunu eşitliyoruz
+      setTimeout(() => {
+        if (container.scrollLeft < oneThird) {
+          // Çok fazla sola gittiyse, ortadaki sete kaydır
+          container.scrollLeft = container.scrollLeft + oneThird;
+        } else if (container.scrollLeft > oneThird * 2) {
+          // Çok fazla sağa gittiyse, ortadaki sete kaydır
+          container.scrollLeft = container.scrollLeft - oneThird;
+        }
+        setIsPaused(false); // Otomatik kaymayı tekrar başlat
+      }, 320);
+    };
+
+    return(
+    <section id = "experience" className = "py-24 border-t border-border bg-card/10 overflow-hidden" >
+        <div className="max-w-6xl mx-auto px-6 mb-12">
+          <div className="grid md:grid-cols-[200px_1fr] gap-12">
+            <div>
+              <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider sticky top-24">
+                Experience & Labs
+              </h2>
+            </div>
+            <div>
+              <p className="text-lg text-muted-foreground max-w-2xl">
+                Here are the companies I have worked with, research laboratories I have contributed to,
+                and the engineering solutions I have deployed in the field.
+                <span className="text-primary font-medium block mt-1 text-sm font-mono">
+                  ← Hover to pause, click arrows to slide, click cards to visit website →
+                </span>
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="text-lg text-muted-foreground max-w-2xl">
-              Here are the companies I have worked with, research laboratories I have contributed to,
-              and the engineering solutions I have deployed in the field.
-              <span className="text-primary font-medium block mt-1 text-sm font-mono">
-                ← Hover to pause & click to visit website →
-              </span>
+        </div>
+
+      {/* Marquee Slider Container */ }
+      <div className = "relative w-full py-4 group/slider" >
+        {/* Sol Ok Butonu (Mouse üzerine gelince görünür) */ }
+        < button
+          onClick = {() => handleScroll("left")}
+className = "absolute left-6 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-background/80 border border-border backdrop-blur-md text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 shadow-xl opacity-0 group-hover/slider:opacity-100 cursor-pointer hidden md:flex items-center justify-center hover:scale-110 active:scale-95"
+aria - label="Scroll left"
+  >
+  <ChevronLeft size={20} />
+        </button >
+
+  {/* Sağ Ok Butonu (Mouse üzerine gelince görünür) */ }
+  < button
+onClick = {() => handleScroll("right")}
+className = "absolute right-6 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-background/80 border border-border backdrop-blur-md text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 shadow-xl opacity-0 group-hover/slider:opacity-100 cursor-pointer hidden md:flex items-center justify-center hover:scale-110 active:scale-95"
+aria - label="Scroll right"
+  >
+  <ChevronRight size={20} />
+        </button >
+
+  {/* Sol ve Sağ Sönümleme Efekti (Fade Effect) */ }
+  < div className = "absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+    <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+
+{/* Kayan Bant */ }
+<div
+  ref={scrollRef}
+  onMouseEnter={() => setIsPaused(true)}
+  onMouseLeave={() => setIsPaused(false)}
+  className="flex gap-6 overflow-x-auto py-2 px-8 select-none scrollbar-none"
+  style={{
+    scrollbarWidth: "none",
+    msOverflowStyle: "none",
+  }}
+>
+  {duplicatedExperiences.map((exp, index) => {
+    const IconComponent = exp.icon;
+    return (
+      <a
+        key={index}
+        href={exp.websiteUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`flex-shrink-0 w-[320px] md:w-[360px] group relative block p-6 rounded-xl border bg-gradient-to-br ${exp.colorClass} backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 shadow-sm hover:shadow-md cursor-pointer`}
+      >
+        {/* Dışarı Gitme İkonu (Sağ üst köşe) */}
+        <div className="absolute top-4 right-4 text-muted-foreground/40 group-hover:text-primary transition-colors duration-300">
+          <ExternalLink size={14} />
+        </div>
+
+        <div className="flex items-start gap-4">
+          {/* Sol Görsel/İkon Bölümü */}
+          <div className="p-2.5 rounded-lg bg-background/90 border border-border group-hover:border-primary/30 transition-all duration-300 flex items-center justify-center w-12 h-12 flex-shrink-0 overflow-hidden">
+            {exp.image ? (
+              <img
+                src={exp.image}
+                alt={exp.name}
+                className="w-full h-full object-cover rounded"
+              />
+            ) : IconComponent ? (
+              <IconComponent className={`w-6 h-6 ${exp.iconColor} group-hover:scale-110 transition-transform duration-300`} />
+            ) : null}
+          </div>
+
+          {/* Detaylar */}
+          <div className="flex-1 min-w-0">
+            <span className="text-[10px] font-mono font-semibold tracking-wider uppercase opacity-60 text-muted-foreground group-hover:text-primary transition-colors">
+              {exp.type}
+            </span>
+
+            <h3 className="text-lg font-bold text-foreground mt-1 group-hover:text-primary transition-colors truncate">
+              {exp.name}
+            </h3>
+
+            <p className="text-xs text-muted-foreground font-mono mt-0.5 truncate">
+              {exp.role}
+            </p>
+
+            <p className="text-xs text-muted-foreground/80 mt-3 leading-relaxed line-clamp-2">
+              {exp.description}
             </p>
           </div>
         </div>
-      </div>
-
-      {/* Marquee Slider Container */}
-      <div className="relative w-full py-4 overflow-x-hidden mask-gradient">
-        {/* Sol ve Sağ Sönümleme Efekti (Fade Effect) */}
-        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-
-        {/* Kayan Bant (Hover olunca durması için Tailwind v4 hover:animate-paused ekledik) */}
-        <div className="animate-marquee-right hover:animate-paused flex gap-6 px-4">
-          {duplicatedExperiences.map((exp, index) => {
-            const IconComponent = exp.icon;
-            return (
-              <a
-                key={index}
-                href={exp.websiteUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`flex-shrink-0 w-[320px] md:w-[360px] group relative block p-6 rounded-xl border bg-gradient-to-br ${exp.colorClass} backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 shadow-sm hover:shadow-md cursor-pointer`}
-              >
-                {/* Dışarı Gitme İkonu (Sağ üst köşe) */}
-                <div className="absolute top-4 right-4 text-muted-foreground/40 group-hover:text-primary transition-colors duration-300">
-                  <ExternalLink size={14} />
-                </div>
-
-                <div className="flex items-start gap-4">
-                  {/* Sol Görsel/İkon Bölümü */}
-                  <div className="p-2.5 rounded-lg bg-background/90 border border-border group-hover:border-primary/30 transition-all duration-300 flex items-center justify-center w-12 h-12 flex-shrink-0 overflow-hidden">
-                    {exp.image ? (
-                      <img
-                        src={exp.image}
-                        alt={exp.name}
-                        className="w-full h-full object-cover rounded"
-                      />
-                    ) : IconComponent ? (
-                      <IconComponent className={`w-6 h-6 ${exp.iconColor} group-hover:scale-110 transition-transform duration-300`} />
-                    ) : null}
-                  </div>
-
-                  {/* Detaylar */}
-                  <div className="flex-1 min-w-0">
-                    <span className="text-[10px] font-mono font-semibold tracking-wider uppercase opacity-60 text-muted-foreground group-hover:text-primary transition-colors">
-                      {exp.type}
-                    </span>
-
-                    <h3 className="text-lg font-bold text-foreground mt-1 group-hover:text-primary transition-colors truncate">
-                      {exp.name}
-                    </h3>
-
-                    <p className="text-xs text-muted-foreground font-mono mt-0.5 truncate">
-                      {exp.role}
-                    </p>
-
-                    <p className="text-xs text-muted-foreground/80 mt-3 leading-relaxed line-clamp-2">
-                      {exp.description}
-                    </p>
-                  </div>
-                </div>
-              </a>
-            );
-          })}
-        </div>
-      </div>
-    </section>
+      </a>
+    );
+  })}
+</div>
+      </div >
+    </section >
   );
 }
