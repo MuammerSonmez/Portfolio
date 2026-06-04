@@ -129,6 +129,7 @@ export function CompanyCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
 
   const checkScroll = () => {
     if (scrollRef.current) {
@@ -147,8 +148,10 @@ export function CompanyCarousel() {
     }
   }, []);
 
-  // Auto-scroll every 5 seconds
+  // Auto-scroll every 5 seconds (pauses on hover)
   useEffect(() => {
+    if (isPaused) return;
+
     const interval = setInterval(() => {
       if (scrollRef.current) {
         const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
@@ -171,7 +174,7 @@ export function CompanyCarousel() {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isPaused]);
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
@@ -233,6 +236,8 @@ export function CompanyCarousel() {
               scrollbarWidth: "none",
               msOverflowStyle: "none",
             }}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
           >
             {companies.map((company) => (
               <div key={company.id} className="snap-center flex-shrink-0">
