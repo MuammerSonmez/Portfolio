@@ -133,3 +133,60 @@ html {
 @utility animate-paused {
   animation-play-state: paused;
 }
+
+/* ============================================
+   Marquee / Infinite Carousel System
+   ============================================ */
+
+.marquee-container {
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: marquee-scroll 45s linear infinite;
+  /* Smooth slow-down when hovering */
+  transition: animation-duration 0.4s ease;
+}
+
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Marquee Card */
+.marquee-card {
+  flex-shrink: 0;
+  width: 320px;
+  position: relative;
+  display: block;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background-color: oklch(0.15 0.02 240);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px oklch(0 0 0 / 0.1);
+}
+
+.marquee-card:hover {
+  border-color: oklch(0.75 0.15 185 / 0.4);
+  box-shadow: 0 8px 25px oklch(0 0 0 / 0.2), 0 0 0 1px oklch(0.75 0.15 185 / 0.1);
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .marquee-card {
+    width: 360px;
+  }
+}

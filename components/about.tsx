@@ -28,24 +28,6 @@ export function About() {
               I&apos;m here to help bring your vision to reality.
             </p>
 
-            <div className="pt-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div>
-                <p className="text-3xl font-bold text-primary">5+</p>
-                <p className="text-sm text-muted-foreground mt-1">Years Experience</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-primary">20+</p>
-                <p className="text-sm text-muted-foreground mt-1">Projects Completed</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-primary">15+</p>
-                <p className="text-sm text-muted-foreground mt-1">Happy Clients</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-primary">100%</p>
-                <p className="text-sm text-muted-foreground mt-1">Satisfaction</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
