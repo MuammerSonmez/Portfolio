@@ -48,20 +48,20 @@ export function Hero() {
       <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-10 w-full max-w-5xl px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
           <div>
-            <p className="text-3xl font-bold text-primary">5+</p>
+            <p className="text-3xl font-bold text-primary">2+</p>
             <p className="text-sm text-foreground/50 mt-1">Years Experience</p>
           </div>
           <div>
-            <p className="text-3xl font-bold text-primary">20+</p>
+            <p className="text-3xl font-bold text-primary">4+</p>
             <p className="text-sm text-foreground/50 mt-1">Projects Completed</p>
           </div>
           <div>
-            <p className="text-3xl font-bold text-primary">15+</p>
-            <p className="text-sm text-foreground/50 mt-1">Happy Clients</p>
+            <p className="text-3xl font-bold text-primary">3</p>
+            <p className="text-sm text-foreground/50 mt-1">Certificates</p>
           </div>
           <div>
             <p className="text-3xl font-bold text-primary">100%</p>
-            <p className="text-sm text-foreground/50 mt-1">Satisfaction</p>
+            <p className="text-sm text-foreground/50 mt-1">Dedication</p>
           </div>
         </div>
       </div>

@@ -1,27 +1,27 @@
 const skills = {
-  "Languages": [
-    { name: "C++", level: "Expert" },
-    { name: "C", level: "Expert" },
+  "Data Structures & Languages": [
+    { name: "C / C++", level: "Expert" },
     { name: "Python", level: "Advanced" },
-    { name: "Bash/Shell", level: "Advanced" },
+    { name: "Turkish", level: "Native" },
+    { name: "English", level: "B2" },
   ],
-  "ROS2 Ecosystem": [
+  "Robotics & Autonomous Systems": [
     { name: "ROS2 Humble", level: "Expert" },
-    { name: "Nav2", level: "Expert" },
-    { name: "Cartographer", level: "Advanced" },
-    { name: "MoveIt2", level: "Advanced" },
+    { name: "Cartographer / SLAM", level: "Expert" },
+    { name: "NAV2 / MPPI Controller", level: "Advanced" },
+    { name: "Docker Container", level: "Advanced" },
   ],
-  "Perception & SLAM": [
-    { name: "Perception", level: "Expert" },
-    { name: "SLAM", level: "Advanced" },
-    { name: "Sensor Fusion", level: "Advanced" },
-    { name: "Computer Vision", level: "Advanced" },
+  "Simulations": [
+    { name: "Gazebo", level: "Expert" },
+    { name: "NVIDIA Isaac Sim", level: "Advanced" },
+    { name: "Webots", level: "Intermediate" },
+    { name: "Carla", level: "Intermediate" },
   ],
-  "Tools & Platforms": [
-    { name: "Linux/Ubuntu", level: "Expert" },
-    { name: "Git/GitHub", level: "Expert" },
-    { name: "Docker", level: "Advanced" },
-    { name: "Gazebo/RViz", level: "Expert" },
+  "Data Comms and Networks": [
+    { name: "Servers", level: "Advanced" },
+    { name: "Firewall", level: "Intermediate" },
+    { name: "TCP/IP", level: "Advanced" },
+    { name: "OSI Layers", level: "Advanced" },
   ],
 };
 

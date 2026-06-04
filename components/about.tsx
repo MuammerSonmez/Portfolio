@@ -11,21 +11,20 @@ export function About() {
           
           <div className="space-y-6">
             <p className="text-lg text-foreground leading-relaxed">
-              I&apos;m a robotics engineer passionate about creating autonomous systems that solve real-world problems. 
-              With deep expertise in ROS2 and extensive experience in C++ and C, I build robust, efficient, 
+              I&apos;m a Robotic Software Engineer and Computer Engineering student at Selcuk University, passionate about creating autonomous systems that solve real-world problems. 
+              With deep expertise in ROS2, the navigation stack (Nav2), and extensive experience in C++ and Python, I build robust, efficient, 
               and scalable robotic solutions.
             </p>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
               My work spans the full robotics stack: from low-level sensor integration and motor control 
-              to high-level planning and perception algorithms. I&apos;ve worked on autonomous mobile robots, 
-              industrial automation systems, and research platforms.
+              to high-level planning, perception algorithms, and SLAM implementations like Cartographer. I&apos;ve worked on autonomous mobile robots, 
+              multi-robot architectures, and simulation environments including Gazebo and NVIDIA Isaac Sim.
             </p>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I&apos;m available for freelance projects and collaborations. Whether you need help with 
-              navigation systems, sensor fusion, SLAM implementation, or full robotic system development, 
-              I&apos;m here to help bring your vision to reality.
+              Currently working as an Autonomous Systems Engineering Intern at MilSOFT Yazılım Teknolojileri A.Ş., I am focused on bridging the gap between perception modules and dynamic control architectures for defense industry applications. 
+              I am always eager to help bring complex robotic visions to reality.
             </p>
 
           </div>

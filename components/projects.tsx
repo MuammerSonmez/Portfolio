@@ -3,40 +3,38 @@ import Link from "next/link";
 
 const projects = [
   {
-    title: "Autonomous Mobile Robot",
-    description: "Full autonomous navigation system using ROS2 Humble, Nav2, and Cartographer for indoor warehouse automation. Features dynamic obstacle avoidance and multi-robot coordination.",
-    tags: ["ROS2 Humble", "Nav2", "Cartographer", "C++"],
-    year: "2024",
+    title: "Multi-Robot Fleet Management System",
+    description: "Developed a master-slave fleet management architecture for multiple service robots. Integrated Nav2 stack and decision support algorithms for autonomous path planning and built a PyQt5-based GUI for real-time task management.",
+    tags: ["ROS2 Humble", "Nav2", "PyQt5", "Python"],
+    year: "2026",
+    links: {
+      github: "#",
+    },
+  },
+  {
+    title: "Autonomous Cafe Service Robot",
+    description: "Engineered a ROS-based autonomous service robot featuring SLAM for mapping, AMCL for localization, and Nav2 for dynamic obstacle avoidance. Designed a desktop GUI for interactive ordering.",
+    tags: ["ROS", "SLAM", "AMCL", "Nav2", "Docker"],
+    year: "2025",
+    links: {
+      github: "#",
+    },
+  },
+  {
+    title: "Autonomous Line Following System",
+    description: "Built a ROS 2-based autonomous system in Gazebo utilizing OpenCV for line tracking, SLAM for mapping, and Nav2 for multi-goal navigation with a TurtleBot3.",
+    tags: ["ROS2", "Gazebo", "OpenCV", "SLAM", "Nav2"],
+    year: "2025",
     links: {
       demo: "#",
       github: "#",
     },
   },
   {
-    title: "Perception Pipeline",
-    description: "Real-time 3D perception system combining LiDAR and camera data for object detection and tracking. Implemented custom sensor fusion algorithms for robust environmental understanding.",
-    tags: ["Perception", "Sensor Fusion", "C++", "Python"],
-    year: "2024",
-    links: {
-      demo: "#",
-      github: "#",
-    },
-  },
-  {
-    title: "Agricultural Robot Platform",
-    description: "Designed and implemented the navigation stack for an outdoor agricultural robot. GPS-RTK integration with visual odometry fallback for all-weather operation.",
-    tags: ["ROS2", "Nav2", "GPS-RTK", "SLAM"],
-    year: "2023",
-    links: {
-      demo: "#",
-      github: "#",
-    },
-  },
-  {
-    title: "Robot Arm Control System",
-    description: "MoveIt2-based manipulation system for a 6-DOF industrial robot arm. Implemented collision-aware motion planning and precise position control for pick-and-place operations.",
-    tags: ["MoveIt2", "C++", "Motion Planning"],
-    year: "2023",
+    title: "Wi-Fi Controlled Robotic Vehicle",
+    description: "Designed and fabricated a custom vehicle chassis, integrating an ESP32 microcontroller. Utilized a WebSocket architecture over Wi-Fi for real-time remote control from a custom mobile app.",
+    tags: ["ESP32", "WebSocket", "C++", "Hardware Design"],
+    year: "2025",
     links: {
       github: "#",
     },

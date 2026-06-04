@@ -15,60 +15,53 @@ interface Company {
 const companies: Company[] = [
   {
     id: 1,
-    name: "Google",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg",
+    name: "MilSOFT",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
     description:
-      "Dünya genelinde arama motoru, bulut hizmetleri ve yapay zeka çözümleri sunan teknoloji devi.",
+      "Autonomous Systems Engineering Intern. Developing core logic for Dynamic Object Following and integrating DLIO with Cartographer.",
   },
   {
     id: 2,
-    name: "Microsoft",
-    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoft.svg",
+    name: "Konya Tech Uni",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
     description:
-      "Windows işletim sistemi, Azure bulut platformu ve Office ürünleri ile tanınan yazılım şirketi.",
+      "Undergraduate Researcher at Robotics Lab. Conducting research on multi-robot architectures and autonomous service robots.",
   },
   {
     id: 3,
-    name: "Apple",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg",
+    name: "Otobot (Elfatek)",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
     description:
-      "iPhone, Mac ve diğer premium tüketici elektroniği ürünleri ile bilinen inovasyon lideri.",
+      "Robotic Software Engineer Intern (R&D). Developed ROS2-based AMR navigation and engineered real-time telemetry logging.",
   },
   {
     id: 4,
-    name: "Amazon",
-    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/amazon.svg",
+    name: "Selcuk University",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg",
     description:
-      "E-ticaret, AWS bulut hizmetleri ve yapay zeka alanlarında dünya lideri teknoloji şirketi.",
+      "Computer Engineering Student (CGPA: 3.12/4.00). Actively developing skills in autonomous systems and software engineering.",
   },
   {
     id: 5,
-    name: "Meta",
-    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/meta.svg",
+    name: "Univ. of Michigan",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg",
     description:
-      "Facebook, Instagram ve WhatsApp ile sosyal medya dünyasının öncü şirketi.",
+      "Certificate in AI for Autonomous Vehicles and Robotics (Sensor Fusion, Reinforcement Learning, SLAM).",
   },
   {
     id: 6,
-    name: "Tesla",
-    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tesla.svg",
+    name: "Univ. of Toronto",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg",
     description:
-      "Elektrikli araçlar, enerji depolama ve güneş enerjisi sistemleri üreten yenilikçi şirket.",
+      "Certificate in Introduction to Self-Driving Cars (Kinematic Bicycle Model, PID Control).",
   },
   {
     id: 7,
-    name: "Netflix",
-    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/netflix.svg",
+    name: "Nat. Tech Academy",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
     description:
-      "Dünya çapında streaming hizmeti sunan, orijinal içerik üretimiyle öne çıkan eğlence şirketi.",
-  },
-  {
-    id: 8,
-    name: "Spotify",
-    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/spotify.svg",
-    description:
-      "Milyonlarca şarkı ve podcast içeren dijital müzik ve medya streaming platformu.",
-  },
+      "Autonomous Driving Technologies Basic Training by the T.C. Ministry of Industry and Technology.",
+  }
 ];
 
 function FlipCard({ company }: { company: Company }) {
