@@ -144,73 +144,75 @@ export function Experience() {
       </div>
 
       {/* Marquee Container */}
-      <div className="marquee-container relative w-full py-4">
-        {/* Sol Sönümleme + Bulanıklaşma Efekti */}
-        <div className="absolute inset-y-0 left-0 w-32 md:w-48 z-10 pointer-events-none" style={{
-          background: 'linear-gradient(to right, var(--background) 0%, var(--background) 15%, oklch(0.12 0.02 240 / 0.85) 40%, oklch(0.12 0.02 240 / 0.4) 70%, transparent 100%)',
-          backdropFilter: 'blur(4px)',
-          WebkitBackdropFilter: 'blur(4px)',
-        }} />
-        {/* Sağ Sönümleme + Bulanıklaşma Efekti */}
-        <div className="absolute inset-y-0 right-0 w-32 md:w-48 z-10 pointer-events-none" style={{
-          background: 'linear-gradient(to left, var(--background) 0%, var(--background) 15%, oklch(0.12 0.02 240 / 0.85) 40%, oklch(0.12 0.02 240 / 0.4) 70%, transparent 100%)',
-          backdropFilter: 'blur(4px)',
-          WebkitBackdropFilter: 'blur(4px)',
-        }} />
+      <div className="max-w-7xl mx-auto px-10">
+        <div className="marquee-container relative w-full py-8">
+          {/* Sol Sönümleme + Bulanıklaşma Efekti */}
+          <div className="absolute inset-y-0 left-0 w-32 md:w-48 z-10 pointer-events-none" style={{
+            background: 'linear-gradient(to right, var(--background) 0%, var(--background) 15%, oklch(0.12 0.02 240 / 0.85) 60%, oklch(0.12 0.02 240 / 0.4) 70%, transparent 100%)',
+            backdropFilter: 'blur(1px)',
+            WebkitBackdropFilter: 'blur(3px)',
+          }} />4
+          {/* Sağ Sönümleme + Bulanıklaşma Efekti */}
+          <div className="absolute inset-y-0 right-0 w-32 md:w-48 z-10 pointer-events-none" style={{
+            background: 'linear-gradient(to left, var(--background) 0%, var(--background) 15%, oklch(0.12 0.02 240 / 0.85) 60%, oklch(0.12 0.02 240 / 0.4) 70%, transparent 100%)',
+            backdropFilter: 'blur(1px)',
+            WebkitBackdropFilter: 'blur(3px)',
+          }} />
 
-        {/* CSS Marquee Track */}
-        <div className="marquee-track">
-          {duplicatedExperiences.map((exp, index) => {
-            const IconComponent = exp.icon;
-            return (
-              <a
-                key={index}
-                href={exp.websiteUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="marquee-card group"
-              >
-                {/* Dışarı Gitme İkonu (Sağ üst köşe) */}
-                <div className="absolute top-4 right-4 text-muted-foreground/30 group-hover:text-primary transition-colors duration-300">
-                  <ExternalLink size={14} />
-                </div>
-
-                <div className="flex items-start gap-4">
-                  {/* Sol Görsel/İkon Bölümü */}
-                  <div className="p-2.5 rounded-lg bg-background/60 border border-border/50 group-hover:border-primary/30 transition-all duration-300 flex items-center justify-center w-12 h-12 flex-shrink-0 overflow-hidden">
-                    {exp.image ? (
-                      <img
-                        src={exp.image}
-                        alt={exp.name}
-                        className="w-full h-full object-cover rounded"
-                      />
-                    ) : IconComponent ? (
-                      <IconComponent className={`w-6 h-6 ${exp.iconColor} group-hover:scale-110 transition-transform duration-300`} />
-                    ) : null}
+          {/* CSS Marquee Track */}
+          <div className="marquee-track">
+            {duplicatedExperiences.map((exp, index) => {
+              const IconComponent = exp.icon;
+              return (
+                <a
+                  key={index}
+                  href={exp.websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="marquee-card group"
+                >
+                  {/* Dışarı Gitme İkonu (Sağ üst köşe) */}
+                  <div className="absolute top-4 right-4 text-muted-foreground/30 group-hover:text-primary transition-colors duration-300">
+                    <ExternalLink size={14} />
                   </div>
 
-                  {/* Detaylar */}
-                  <div className="flex-1 min-w-0">
-                    <span className="text-[10px] font-mono font-semibold tracking-wider uppercase opacity-50 text-muted-foreground">
-                      {exp.type}
-                    </span>
+                  <div className="flex items-start gap-4">
+                    {/* Sol Görsel/İkon Bölümü */}
+                    <div className="p-2.5 rounded-lg bg-background/60 border border-border/50 group-hover:border-primary/30 transition-all duration-300 flex items-center justify-center w-12 h-12 flex-shrink-0 overflow-hidden">
+                      {exp.image ? (
+                        <img
+                          src={exp.image}
+                          alt={exp.name}
+                          className="w-full h-full object-cover rounded"
+                        />
+                      ) : IconComponent ? (
+                        <IconComponent className={`w-6 h-6 ${exp.iconColor} group-hover:scale-110 transition-transform duration-300`} />
+                      ) : null}
+                    </div>
 
-                    <h3 className="text-base font-semibold text-foreground mt-1 group-hover:text-primary transition-colors truncate">
-                      {exp.name}
-                    </h3>
+                    {/* Detaylar */}
+                    <div className="flex-1 min-w-0">
+                      <span className="text-[10px] font-mono font-semibold tracking-wider uppercase opacity-50 text-muted-foreground">
+                        {exp.type}
+                      </span>
 
-                    <p className="text-xs text-muted-foreground font-mono mt-0.5 truncate">
-                      {exp.role}
-                    </p>
+                      <h3 className="text-base font-semibold text-foreground mt-1 group-hover:text-primary transition-colors truncate">
+                        {exp.name}
+                      </h3>
 
-                    <p className="text-xs text-muted-foreground/70 mt-2.5 leading-relaxed line-clamp-2">
-                      {exp.description}
-                    </p>
+                      <p className="text-xs text-muted-foreground font-mono mt-0.5 truncate">
+                        {exp.role}
+                      </p>
+
+                      <p className="text-xs text-muted-foreground/70 mt-2.5 leading-relaxed line-clamp-2">
+                        {exp.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </a>
-            );
-          })}
+                </a>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
