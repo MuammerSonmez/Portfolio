@@ -14,8 +14,8 @@ export default function Page() {
       <main>
         <Hero />
         <About />
-        <CompanyCarousel />
         <Projects />
+        <CompanyCarousel />
         <Skills />
         <Contact />
       </main>
