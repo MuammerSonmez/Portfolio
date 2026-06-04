@@ -147,6 +147,32 @@ export function CompanyCarousel() {
     }
   }, []);
 
+  // Auto-scroll every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (scrollRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+        const isAtEnd = scrollLeft >= scrollWidth - clientWidth - 10;
+
+        if (isAtEnd) {
+          // Reset to beginning
+          scrollRef.current.scrollTo({
+            left: 0,
+            behavior: "smooth",
+          });
+        } else {
+          // Scroll right
+          scrollRef.current.scrollBy({
+            left: 320,
+            behavior: "smooth",
+          });
+        }
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
       const scrollAmount = 320;
