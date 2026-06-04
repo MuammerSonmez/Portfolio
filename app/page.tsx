@@ -6,6 +6,7 @@ import { Projects } from "@/components/projects";
 import { Experience } from "@/components/experience";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
+import { CompanyCarousel } from "@/components/company-carousel";
 
 export default function Page() {
   return (
@@ -14,6 +15,7 @@ export default function Page() {
       <main>
         <Hero />
         <About />
+        <CompanyCarousel />
         <Projects />
         <Skills />
         <Experience />
