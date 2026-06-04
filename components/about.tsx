@@ -11,9 +11,10 @@ export function About() {
           
           <div className="space-y-6">
             <p className="text-lg text-foreground leading-relaxed">
-              I&apos;m a Robotic Software Engineer and Computer Engineering student at Selcuk University, passionate about creating autonomous systems that solve real-world problems. 
-              With deep expertise in ROS2, the navigation stack (Nav2), and extensive experience in C++ and Python, I build robust, efficient, 
-              and scalable robotic solutions.
+              I am a Computer Engineering student at Selçuk University and I am graduating this year.
+              I am passionate about creating autonomous systems that solve real-world problems. 
+              With my deep expertise in ROS2 navigation stack (Nav2) and extensive experience in C++ and Python, 
+              I develop robust, efficient, and scalable robotics solutions..
             </p>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -23,8 +24,10 @@ export function About() {
             </p>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Currently working as an Autonomous Systems Engineering Intern at MilSOFT Yazılım Teknolojileri A.Ş., I am focused on bridging the gap between perception modules and dynamic control architectures for defense industry applications. 
-              I am always eager to help bring complex robotic visions to reality.
+                I recently completed my Autonomous Systems Engineering internship at MilSOFT Software Technologies Inc.
+                and am currently working on a competition project within RACLAB. My main area of ​​work is ensuring the integration of
+                perception modules and dynamic control architectures for defense industry applications. I am highly motivated to 
+                transform complex robotic visions into tangible, field-ready systems.
             </p>
 
           </div>

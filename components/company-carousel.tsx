@@ -16,51 +16,44 @@ const companies: Company[] = [
   {
     id: 1,
     name: "MilSOFT",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+    logo: "/milsoft.svg",
     description:
       "Autonomous Systems Engineering Intern. Developing core logic for Dynamic Object Following and integrating DLIO with Cartographer.",
   },
   {
     id: 2,
-    name: "Konya Tech Uni",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+    name: "RACLAB",
+    logo: "/raclab.svg",
     description:
       "Undergraduate Researcher at Robotics Lab. Conducting research on multi-robot architectures and autonomous service robots.",
   },
   {
     id: 3,
-    name: "Otobot (Elfatek)",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
-    description:
-      "Robotic Software Engineer Intern (R&D). Developed ROS2-based AMR navigation and engineered real-time telemetry logging.",
-  },
-  {
-    id: 4,
     name: "Selcuk University",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg",
+    logo: "/su.svg",
     description:
       "Computer Engineering Student (CGPA: 3.12/4.00). Actively developing skills in autonomous systems and software engineering.",
   },
   {
+    id: 4,
+    name: "T.C. Ministry of Industry",
+    logo: "/tc.svg",
+    description:
+      "Autonomous Driving Technologies Basic Training by the National Technology Academy.",
+  },
+  {
     id: 5,
     name: "Univ. of Michigan",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg",
+    logo: "/uom.svg",
     description:
       "Certificate in AI for Autonomous Vehicles and Robotics (Sensor Fusion, Reinforcement Learning, SLAM).",
   },
   {
     id: 6,
     name: "Univ. of Toronto",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg",
+    logo: "/uot.svg",
     description:
       "Certificate in Introduction to Self-Driving Cars (Kinematic Bicycle Model, PID Control).",
-  },
-  {
-    id: 7,
-    name: "Nat. Tech Academy",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-    description:
-      "Autonomous Driving Technologies Basic Training by the T.C. Ministry of Industry and Technology.",
   }
 ];
 
@@ -74,7 +67,7 @@ function FlipCard({ company }: { company: Company }) {
       onMouseLeave={() => setIsFlipped(false)}
     >
       <div className={cn("flip-card-inner", isFlipped && "flipped")}>
-        {/* Ön Yüz */}
+        {/* Front Face */}
         <div className="flip-card-front">
           <div className="flex flex-col items-center justify-center h-full gap-6">
             <div className="w-24 h-24 flex items-center justify-center rounded-2xl bg-secondary/50 p-4">
@@ -90,12 +83,12 @@ function FlipCard({ company }: { company: Company }) {
           </div>
           <div className="absolute bottom-4 left-0 right-0 text-center">
             <span className="text-xs text-muted-foreground">
-              Detaylar için üzerine gelin
+              Hover for details
             </span>
           </div>
         </div>
 
-        {/* Arka Yüz */}
+        {/* Back Face */}
         <div className="flip-card-back">
           <div className="flex flex-col items-center justify-center h-full gap-4 p-6">
             <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-primary/20 p-2">
@@ -184,16 +177,15 @@ export function CompanyCarousel() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Birlikte Çalıştığım Şirketler
+            Organizations I&apos;ve Worked With
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Kariyerim boyunca birlikte çalışma fırsatı bulduğum önde gelen
-            teknoloji şirketleri
+            Leading organizations and institutions I&apos;ve had the opportunity to collaborate with throughout my career
           </p>
         </div>
 
         <div className="relative">
-          {/* Sol Ok */}
+          {/* Left Arrow */}
           <Button
             variant="outline"
             size="icon"
@@ -202,12 +194,12 @@ export function CompanyCarousel() {
               !canScrollLeft && "opacity-0 pointer-events-none"
             )}
             onClick={() => scroll("left")}
-            aria-label="Önceki"
+            aria-label="Previous"
           >
             <ChevronLeft className="h-5 w-5" />
           </Button>
 
-          {/* Sağ Ok */}
+          {/* Right Arrow */}
           <Button
             variant="outline"
             size="icon"
@@ -216,7 +208,7 @@ export function CompanyCarousel() {
               !canScrollRight && "opacity-0 pointer-events-none"
             )}
             onClick={() => scroll("right")}
-            aria-label="Sonraki"
+            aria-label="Next"
           >
             <ChevronRight className="h-5 w-5" />
           </Button>

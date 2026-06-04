@@ -51,29 +51,29 @@ export function Projects() {
               Projects
             </h2>
           </div>
-          
+
           <div className="space-y-12">
             {projects.map((project, index) => (
-              <article 
-                key={index} 
+              <article
+                key={index}
                 className="group relative grid md:grid-cols-[100px_1fr] gap-6 pb-12 border-b border-border/50 last:border-0"
               >
                 <div className="text-sm text-muted-foreground font-mono">
                   {project.year}
                 </div>
-                
+
                 <div>
                   <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  
+
                   <p className="text-muted-foreground leading-relaxed mb-4">
                     {project.description}
                   </p>
-                  
+
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag) => (
-                      <span 
+                      <span
                         key={tag}
                         className="text-xs font-mono px-2 py-1 bg-secondary text-secondary-foreground rounded"
                       >
@@ -81,7 +81,8 @@ export function Projects() {
                       </span>
                     ))}
                   </div>
-                  
+
+                  {/* 
                   <div className="flex gap-4">
                     {project.links.github && (
                       <Link 
@@ -102,6 +103,7 @@ export function Projects() {
                       </Link>
                     )}
                   </div>
+                  */}
                 </div>
               </article>
             ))}

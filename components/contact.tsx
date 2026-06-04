@@ -38,7 +38,7 @@ export function Contact() {
                 <h3 className="text-sm font-medium text-muted-foreground mb-3">Social</h3>
                 <div className="flex gap-4">
                   <Link 
-                    href="https://github.com"
+                    href="https://github.com/MuammerSonmez"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors"
@@ -47,7 +47,7 @@ export function Contact() {
                     <span>GitHub</span>
                   </Link>
                   <Link 
-                    href="https://linkedin.com"
+                    href="https://www.linkedin.com/in/muammersonmez/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors"
