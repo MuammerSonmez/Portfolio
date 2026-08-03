@@ -31,10 +31,9 @@ const companies: Company[] = [
   {
     id: 3,
     name: "OTOBOT",
-    logo: "/otobot.png",
+    logo: "/otobot.svg",
     description:
       "Autonomous robotics platform. Contributed to the development of autonomous mobile robot software and hardware integration.",
-    noInvert: true,
   },
   {
     id: 4,
