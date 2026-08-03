@@ -53,6 +53,7 @@ const companies: Company[] = [
     logo: "/tc.svg",
     description:
       "Autonomous Driving Technologies Basic Training by the National Technology Academy.",
+    image: "/otonom.png",
   },
   {
     id: 6,
@@ -60,6 +61,7 @@ const companies: Company[] = [
     logo: "/uom.svg",
     description:
       "Certificate in AI for Autonomous Vehicles and Robotics (Sensor Fusion, Reinforcement Learning, SLAM).",
+    image: "/michigancert.png",
   },
   {
     id: 7,
@@ -67,6 +69,7 @@ const companies: Company[] = [
     logo: "/uot.svg",
     description:
       "Certificate in Introduction to Self-Driving Cars (Kinematic Bicycle Model, PID Control).",
+    image: "/torontocert.png",
   }
 ];
 
