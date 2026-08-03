@@ -10,6 +10,7 @@ interface Company {
   name: string;
   logo: string;
   description: string;
+  noInvert?: boolean;
 }
 
 const companies: Company[] = [
@@ -29,27 +30,35 @@ const companies: Company[] = [
   },
   {
     id: 3,
-    name: "Selcuk University",
-    logo: "/su.svg",
+    name: "OTOBOT",
+    logo: "/otobot.png",
     description:
-      "Computer Engineering Student (CGPA: 3.12/4.00). Actively developing skills in autonomous systems and software engineering.",
+      "Autonomous robotics platform. Contributed to the development of autonomous mobile robot software and hardware integration.",
+    noInvert: true,
   },
   {
     id: 4,
+    name: "Selcuk University",
+    logo: "/su.svg",
+    description:
+      "Computer Engineering Student (CGPA: 3.20/4.00). Actively developing skills in autonomous systems and software engineering.",
+  },
+  {
+    id: 5,
     name: "T.C. Ministry of Industry",
     logo: "/tc.svg",
     description:
       "Autonomous Driving Technologies Basic Training by the National Technology Academy.",
   },
   {
-    id: 5,
+    id: 6,
     name: "Univ. of Michigan",
     logo: "/uom.svg",
     description:
       "Certificate in AI for Autonomous Vehicles and Robotics (Sensor Fusion, Reinforcement Learning, SLAM).",
   },
   {
-    id: 6,
+    id: 7,
     name: "Univ. of Toronto",
     logo: "/uot.svg",
     description:
@@ -74,7 +83,10 @@ function FlipCard({ company }: { company: Company }) {
               <img
                 src={company.logo}
                 alt={`${company.name} logo`}
-                className="w-16 h-16 object-contain filter invert brightness-0 invert opacity-90"
+                className={cn(
+                  "w-16 h-16 object-contain opacity-90",
+                  !company.noInvert && "filter invert brightness-0 invert"
+                )}
               />
             </div>
             <h3 className="text-xl font-semibold text-foreground">
@@ -95,7 +107,10 @@ function FlipCard({ company }: { company: Company }) {
               <img
                 src={company.logo}
                 alt={`${company.name} logo`}
-                className="w-8 h-8 object-contain filter invert brightness-0 invert opacity-70"
+                className={cn(
+                  "w-8 h-8 object-contain opacity-70",
+                  !company.noInvert && "filter invert brightness-0 invert"
+                )}
               />
             </div>
             <h3 className="text-lg font-semibold text-foreground">
