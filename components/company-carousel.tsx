@@ -12,7 +12,7 @@ interface Company {
   description: string;
   noInvert?: boolean;
 }
-
+// k
 const companies: Company[] = [
   {
     id: 1,
