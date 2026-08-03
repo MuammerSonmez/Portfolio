@@ -11,6 +11,7 @@ interface Company {
   logo: string;
   description: string;
   noInvert?: boolean;
+  image?: string;
 }
 
 const companies: Company[] = [
@@ -20,6 +21,7 @@ const companies: Company[] = [
     logo: "/milsoft.svg",
     description:
       "Autonomous Systems Engineering Intern. Developing core logic for Dynamic Object Following and integrating DLIO with Cartographer.",
+    image: "/milsoftteam.jpeg",
   },
   {
     id: 2,
@@ -27,6 +29,7 @@ const companies: Company[] = [
     logo: "/raclab.svg",
     description:
       "Undergraduate Researcher at Robotics Lab. Conducting research on multi-robot architectures and autonomous service robots.",
+    image: "/raclabrover.jpeg",
   },
   {
     id: 3,
@@ -34,6 +37,7 @@ const companies: Company[] = [
     logo: "/otobot.svg",
     description:
       "Autonomous robotics platform. Contributed to the development of autonomous mobile robot software and hardware integration.",
+    image: "/otobotteam.jpeg",
   },
   {
     id: 4,
@@ -41,6 +45,7 @@ const companies: Company[] = [
     logo: "/su.svg",
     description:
       "Computer Engineering Student (CGPA: 3.20/4.00). Actively developing skills in autonomous systems and software engineering.",
+    image: "/turtlebot.jpeg",
   },
   {
     id: 5,
@@ -101,7 +106,20 @@ function FlipCard({ company }: { company: Company }) {
 
         {/* Back Face */}
         <div className="flip-card-back">
-          <div className="flex flex-col items-center justify-center h-full gap-4 p-6">
+          {/* Background photo */}
+          {company.image && (
+            <img
+              src={company.image}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover opacity-20 rounded-2xl"
+            />
+          )}
+          {/* Dark overlay for legibility */}
+          {company.image && (
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/60 via-black/20 to-black/40" />
+          )}
+          <div className="relative z-10 flex flex-col items-center justify-center h-full gap-4 p-6">
             <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-primary/20 p-2">
               <img
                 src={company.logo}
